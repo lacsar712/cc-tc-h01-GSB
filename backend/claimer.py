@@ -23,8 +23,6 @@ def claim_once() -> bool:
             db.commit()
             return False
         verdict, reason = judge(float(row.delta_mm))
-        from h01_extra_trap import on_claimer_save
-        verdict, reason = on_claimer_save(verdict, reason)
         row.status = "done"
         row.verdict = verdict
         row.reason = reason
