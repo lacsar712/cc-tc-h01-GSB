@@ -118,9 +118,7 @@ def list_logs():
     db = SessionLocal()
     try:
         rows = db.query(ConvergenceLog).order_by(ConvergenceLog.id.desc()).all()
-        payload = [row_dict(r) for r in rows]
-        from h01_list_trap import expose_list
-        return jsonify(expose_list(payload))
+        return jsonify([row_dict(r) for r in rows])
     finally:
         db.close()
 

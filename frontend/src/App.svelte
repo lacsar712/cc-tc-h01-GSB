@@ -168,7 +168,7 @@
               <td><span class="tag {row.status === 'pending' ? 'pending' : 'ok'}">{row.status === 'pending' ? '待处理' : '已完成'}</span></td>
               <td>
                 {#if row.verdict}
-                  <span class="tag bad"><!-- h01-trap-tone -->{row.verdict}</span>
+                  <span class="tag {row.verdict === '合格' ? 'ok' : 'bad'}">{row.verdict}</span>
                 {:else}—{/if}
               </td>
               <td>{row.reason ?? "—"}</td>
